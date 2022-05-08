@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<h1>, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .answer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1> O que mais pressionou sua conta no supermercado em abril?</h1>
+    <p>Descubra quais são os produtos alimentícios que mais  subiram de preço.</p>
+    <h2>A salada ficou mais cara. Um dos ingredientes mais comuns subiu 26,17% com relação a março.
+        Qual?</h2>
+        
+    <ol>
+        <li>Alface</li>
+        <li>Cenoura</li>
+        <li>Beterraba</li>
+        <li class="correct">Tomate</li>
+    </ol>
+    <div class="answer">
+        
+        <p class="result">Certo! ✅ </p>
+        <img src="Grafico.png">
+        <p>A resposta é <b>tomate</b> 🍅. De março para abril, o tomate foi responsável por deixar a salada 26,17% mais salgada. 
+            Nos últimos 12 meses o aumento foi de 117,48%, sendo o alimento com maior alta registrada no ranking do mês pelo IPCA-15.
+        </p>
+    </div>
+
+    <script src="app.js">
+        let result = document.querySelector( '.result')
+        let answer = document.querySelector( '.answer')
+
+
+        function checarResposta( event ) {
+            if ( event.target.classList.contains ( 'correct') ) {
+
+               result.textContent = 'Certo! ✅' 
+         } else {
+            result.textContent = 'Errado!  ❌' 
+         }
+        // Mostrar .answer
+        answer.style.display = 'initial'
+        }
+        
+        let alternativas = document.querySelectorAll( 'li' )
+        for ( let alternativa of alternativas) {
+            alternativa.addEventListener( 'click', checarResposta )
+        }
+
+        
+    </script>
+
+</body>
+</html>
